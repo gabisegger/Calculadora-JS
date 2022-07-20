@@ -61,3 +61,9 @@ document.getElementById('clearCalculus').addEventListener('click', clearCalculus
 
 const removeLastNumber = () => display.textContent = display.textContent.slice(0, -1);
 document.getElementById('backspace').addEventListener('click', removeLastNumber);
+
+const invertSignal = () => {
+    newNumber = true;
+    updateDisplay(display.textContent * -1);
+}
+document.getElementById('reverse').addEventListener('click', invertSignal);
