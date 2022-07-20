@@ -46,5 +46,8 @@ const activateEqual = () =>{
     calculate();
     operator = undefined;
 }
-
 document.getElementById('equal').addEventListener('click', activateEqual);
+
+const clearDisplay = () => display.textContent = '';
+document.getElementById('clearDisplay').addEventListener('click', clearDisplay);
+
