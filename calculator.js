@@ -10,7 +10,7 @@ const pendingOperation = () => operator != undefined;
 
 const calculate = () => {
     if(pendingOperation()){
-        const currentNumber = parseFloat(display.textContent);
+        const currentNumber = parseFloat(display.textContent.replace(',','.'));
         newNumber = true;
         const result = eval(`${previousNumber}${operator}${currentNumber}`);
         updateDisplay(result);  
@@ -19,7 +19,7 @@ const calculate = () => {
 
 const updateDisplay = (text) => {
     if(newNumber){
-        display.textContent = text;
+        display.textContent = text.toLocaleString('BR');
         newNumber = false;
     }else{
         display.textContent += text;
@@ -35,7 +35,7 @@ const selectOperator = (e) => {
         calculate()
         newNumber = true;
         operator = e.target.textContent;
-        previousNumber = parseFloat(display.textContent);
+        previousNumber = parseFloat(display.textContent.replace(',','.'));
         console.log(operator)
     }
 }
@@ -67,3 +67,16 @@ const invertSignal = () => {
     updateDisplay(display.textContent * -1);
 }
 document.getElementById('reverse').addEventListener('click', invertSignal);
+
+const thereIsDecimal = () => display.textContent.indexOf(',') != -1;
+const thereIsValue = () => display.textContent.length > 0;
+const insertDecimal = () => {
+    if(!thereIsDecimal()){
+        if(thereIsValue()){
+            updateDisplay(',');
+        }else{
+            updateDisplay('0,');
+        }
+    }
+}
+document.getElementById('decimal').addEventListener('click', insertDecimal);
