@@ -4,7 +4,25 @@ const operators = document.querySelectorAll('[id*=Operator]');
 
 let newNumber = true;
 let operator;
-let previousNumbers;
+let previousNumber;
+
+const pendingOperation = () => operator != undefined;
+
+const calculate = () => {
+    if(pendingOperation()){
+        const currentNumber = parseFloat(display.textContent);
+        newNumber = true;
+        if(operator == '+'){
+            updateDisplay(previousNumber + currentNumber);
+        }else if(operator == '-'){
+            updateDisplay(previousNumber - currentNumber);
+        }else if(operator == '*'){
+            updateDisplay(previousNumber * currentNumber);
+        }else if(operator == '/'){
+            updateDisplay(previousNumber / currentNumber);
+        }
+    }
+}
 
 const updateDisplay = (text) => {
     if(newNumber){
@@ -24,7 +42,7 @@ const selectOperator = (e) => {
         calculate()
         newNumber = true;
         operator = e.target.textContent;
-        previousNumbers = display.textContent;
+        previousNumber = parseFloat(display.textContent);
         console.log(operator)
     }
 }
