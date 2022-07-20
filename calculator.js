@@ -12,15 +12,8 @@ const calculate = () => {
     if(pendingOperation()){
         const currentNumber = parseFloat(display.textContent);
         newNumber = true;
-        if(operator == '+'){
-            updateDisplay(previousNumber + currentNumber);
-        }else if(operator == '-'){
-            updateDisplay(previousNumber - currentNumber);
-        }else if(operator == '*'){
-            updateDisplay(previousNumber * currentNumber);
-        }else if(operator == '/'){
-            updateDisplay(previousNumber / currentNumber);
-        }
+        const result = eval(`${previousNumber}${operator}${currentNumber}`);
+        updateDisplay(result);  
     }
 }
 
