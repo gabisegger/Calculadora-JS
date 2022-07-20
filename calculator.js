@@ -51,3 +51,10 @@ document.getElementById('equal').addEventListener('click', activateEqual);
 const clearDisplay = () => display.textContent = '';
 document.getElementById('clearDisplay').addEventListener('click', clearDisplay);
 
+const clearCalculus = () => {
+    clearDisplay();
+    operator = undefined;
+    newNumber = true;
+    previousNumber = undefined;
+}
+document.getElementById('clearCalculus').addEventListener('click', clearCalculus);
