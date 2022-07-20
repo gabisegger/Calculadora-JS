@@ -80,3 +80,36 @@ const insertDecimal = () => {
     }
 }
 document.getElementById('decimal').addEventListener('click', insertDecimal);
+
+const keyboardMap = {
+    '0'         : 'key0', 
+    '1'         : 'key1',
+    '2'         : 'key2',
+    '3'         : 'key3',
+    '4'         : 'key4',
+    '5'         : 'key5',
+    '6'         : 'key6',
+    '7'         : 'key7',
+    '8'         : 'key8',
+    '9'         : 'key9',
+    '/'         : 'divisionOperator',
+    '*'         : 'multiplicationOperator',
+    '+'         : 'sumOperator',
+    '-'         : 'subtractionOperator',
+    '='         : 'equal',
+    'Enter'     : 'equal',
+    'Backspace' : 'backspace',
+    'c'         : 'clearDisplay',
+    'Escape'    : 'clearCalculus',
+    ','         : 'decimal'
+
+
+}
+
+const mapKeyboard = (e) => {
+    const key = e.key;
+
+    const allowedKey = () => Object.keys(keyboardMap).indexOf(key) !== -1;
+    if(allowedKey()) document.getElementById(keyboardMap[key]).click();
+}
+document.addEventListener('keydown', mapKeyboard)
