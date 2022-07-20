@@ -41,3 +41,10 @@ const selectOperator = (e) => {
 }
 
 operators.forEach(operator => operator.addEventListener('click', selectOperator));
+
+const activateEqual = () =>{
+    calculate();
+    operator = undefined;
+}
+
+document.getElementById('equal').addEventListener('click', activateEqual);
