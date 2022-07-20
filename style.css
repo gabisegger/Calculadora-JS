@@ -49,10 +49,11 @@ body{
     cursor: pointer;
     border: 2px solid black;
 }
-
-button:hover{
-    background-color: pink;
-    color: black;
+@media (min-width: 769px){
+    button:hover{
+        background-color: pink;
+        color: black;
+    }
 }
 
 @media (max-width: 768px){
