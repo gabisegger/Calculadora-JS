@@ -58,3 +58,6 @@ const clearCalculus = () => {
     previousNumber = undefined;
 }
 document.getElementById('clearCalculus').addEventListener('click', clearCalculus);
+
+const removeLastNumber = () => display.textContent = display.textContent.slice(0, -1);
+document.getElementById('backspace').addEventListener('click', removeLastNumber);
